@@ -19,4 +19,14 @@ public class User {
     private int id;
     private String userName;
     private String password;
+
+    private Gender gender;
+    public enum Gender{
+        MALE,
+        FEMALE,
+        UNDEFINED,
+        undefined,
+        male,
+        female
+    }
 }

@@ -9,7 +9,7 @@
     </delete>
 
     <select id="getAllUser" resultType="org.example.pojo.User">
-        select id,name userName,pwd password from user
+        select id,name userName,pwd password,gender from user
     </select>
 
     <insert id="insertUser">
@@ -33,5 +33,19 @@
     <update id="updateUser">
         update user set name = #{userName},pwd = #{password}
         where id = #{id}
+    </update>
+    <update id="updateUserByUser">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="user.userName!=null">
+                `name`=#{user.userName},
+            </if>
+            <if test="user.password!=null">
+                `pwd` = #{user.password}
+            </if>
+        </trim>
+        <where>
+            id=#{user.id}
+        </where>
     </update>
 </mapper>

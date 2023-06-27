@@ -14,7 +14,6 @@ import java.util.List;
 public interface UserMapper {
     List<User> getAllUser();
     int insertUser(User user);
-
     User getUserById(@Param("id") int id);
 
     int deleteById(@Param("id")int id);
@@ -22,4 +21,6 @@ public interface UserMapper {
     int updateUser(User user);
 
     User findByUser(@Param("user") User user);
+
+    int updateUserByUser(@Param("user") User user);
 }
